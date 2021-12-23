@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { DatabaseModule } from '../../data/database.module';
+import { SpdResolver } from './resolvers/general.resolver';
 import { StoreSpdResolver } from './resolvers/store.resolver';
-import { SpdResolver } from './spd.resolver';
 import { SpdService } from './spd.service';
 
 @Module({

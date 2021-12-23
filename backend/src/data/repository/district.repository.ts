@@ -26,4 +26,9 @@ export class DistrictRepository {
   public async delete(where: WhereOpts): Promise<void> {
     await this.districtModel.destroy({ where, cascade: true });
   }
+
+  public async update(id: number, name: IDistrict['name']): Promise<IDistrict> {
+    const [, [store]] = await this.districtModel.update({ name }, { where: { id }, raw: true, returning: true });
+    return store;
+  }
 }

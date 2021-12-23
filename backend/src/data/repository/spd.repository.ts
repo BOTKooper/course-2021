@@ -26,4 +26,9 @@ export class SpdRepository {
   public async delete(where: WhereOpts): Promise<void> {
     await this.spdModel.destroy({ where, cascade: true });
   }
+
+  public async update(id: number, name: ISpd['name']): Promise<ISpd> {
+    const [, [store]] = await this.spdModel.update({ name }, { where: { id }, raw: true, returning: true });
+    return store;
+  }
 }

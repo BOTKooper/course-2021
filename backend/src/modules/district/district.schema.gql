@@ -15,4 +15,5 @@ type Query {
 type Mutation {
   deleteDistrict(id: ID!): Boolean!
   createDistrict(name: String!): District!
+  editDistrict(id: ID!, name: String!): District!
 }

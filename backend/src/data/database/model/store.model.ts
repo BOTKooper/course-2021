@@ -48,6 +48,8 @@ export class StoreModel extends Model<IStore, Omit<IStore, 'id'>> implements ISt
   })
   public street: string;
 
-  @Column({})
+  @Column({
+    allowNull: false,
+  })
   public hours: string;
 }

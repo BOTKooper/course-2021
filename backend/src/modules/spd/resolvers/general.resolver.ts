@@ -31,4 +31,9 @@ export class SpdResolver {
   public createSpd(@Args('name') name: string): Promise<ISpd> {
     return this.spdService.create(name);
   }
+
+  @Mutation()
+  public editSpd(@Args('id') id: string, @Args('id') name: string): Promise<ISpd> {
+    return this.spdService.update(+id, name);
+  }
 }

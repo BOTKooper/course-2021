@@ -34,4 +34,8 @@ export class DistrictService {
   public create(name: string): Promise<IDistrict> {
     return this.districtRepository.create({ name });
   }
+
+  public update(id: number, name: string): Promise<IDistrict> {
+    return this.districtRepository.update(id, name);
+  }
 }

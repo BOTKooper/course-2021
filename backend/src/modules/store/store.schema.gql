@@ -9,10 +9,18 @@ type Store {
 
 input CreateStoreInput {
   name: String!
-  street: String
-  hours: String
+  street: String!
+  hours: String!
   districtId: Int!
   spdId: Int!
+}
+
+input EditStoreInput {
+  name: String
+  street: String
+  hours: String
+  districtId: Int
+  spdId: Int
 }
 
 type Query {
@@ -23,4 +31,5 @@ type Query {
 type Mutation {
   deleteStore(id: ID!): Boolean!
   createStore(input: CreateStoreInput!): Store!
+  editStore(id: ID!, input: EditStoreInput!): Store!
 }

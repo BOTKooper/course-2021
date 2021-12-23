@@ -31,4 +31,9 @@ export class DistrictResolver {
   public createDistrict(@Args('name') name: string): Promise<IDistrict> {
     return this.districtService.create(name);
   }
+
+  @Mutation()
+  public editDistrict(@Args('id') id: string, @Args('id') name: string): Promise<IDistrict> {
+    return this.districtService.update(+id, name);
+  }
 }

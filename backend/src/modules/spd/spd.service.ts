@@ -34,4 +34,8 @@ export class SpdService {
   public create(name: string): Promise<ISpd> {
     return this.spdRepository.create({ name });
   }
+
+  public update(id: number, name: string): Promise<ISpd> {
+    return this.spdRepository.update(id, name);
+  }
 }

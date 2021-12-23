@@ -11,7 +11,7 @@ export class StoreSpdResolver {
   public constructor(
     private readonly spdService: SpdService,
   ) {
-    this.dataLoader = new DataLoader((keys) => this.spdService.getByIds(keys), { cache: false });
+    this.dataLoader = new DataLoader((keys) => this.spdService.getByIds(keys), { cache: true });
   }
 
   @ResolveField()

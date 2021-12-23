@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import { Injectable } from '@nestjs/common';
 import { Nullable } from '../../common/nullable.type';
 import { IStore } from '../../data/database/model/store.model';
@@ -31,5 +32,15 @@ export class StoreService {
 
   public create(data: CreateStoreInput): Promise<IStore> {
     return this.storeRepository.create(data);
+  }
+
+  public update(id: number, data: Partial<CreateStoreInput>): Promise<IStore> {
+    if (data.districtId) {
+      data.districtId = +data.districtId;
+    }
+    if (data.spdId) {
+      data.spdId = +data.spdId;
+    }
+    return this.storeRepository.update(id, data);
   }
 }

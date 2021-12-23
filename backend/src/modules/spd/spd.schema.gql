@@ -16,4 +16,5 @@ type Query {
 type Mutation {
   deleteSpd(id: ID!): Boolean!
   createSpd(name: String!): Spd!
+  editSpd(id: ID!, name: String!): Spd!
 }

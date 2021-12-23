@@ -31,4 +31,9 @@ export class StoreResolver {
   public createStore(@Args('input') input: CreateStoreInput): Promise<IStore> {
     return this.storeService.create(input);
   }
+
+  @Mutation()
+  public editStore(@Args('id') id: string, @Args('input') input: Partial<CreateStoreInput>): Promise<IStore> {
+    return this.storeService.update(+id, input);
+  }
 }

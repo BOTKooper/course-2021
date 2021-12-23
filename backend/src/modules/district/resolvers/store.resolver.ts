@@ -11,7 +11,7 @@ export class StoreDistrictResolver {
   public constructor(
     private readonly districtService: DistrictService,
   ) {
-    this.dataLoader = new DataLoader((keys) => this.districtService.getByIds(keys), { cache: false });
+    this.dataLoader = new DataLoader((keys) => this.districtService.getByIds(keys), { cache: true });
   }
 
   @ResolveField()
