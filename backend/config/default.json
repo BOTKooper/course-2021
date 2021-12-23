@@ -4,8 +4,7 @@
   },
   "postgres": {
     "dialect": "postgres",
-    "synchronize": true,
-    "logging": true,
+    "synchronize": false,
     "database": "course",
     "port": 5432,
     "host": "localhost",

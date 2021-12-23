@@ -1,0 +1,19 @@
+type Spd {
+  id: ID!
+  name: String!
+}
+
+type Store {
+  spd: Spd!
+}
+
+type Query {
+  getAllSpds: [Spd!]!
+  getSpdById(id: ID!): Spd
+}
+
+
+type Mutation {
+  deleteSpd(id: ID!): Boolean!
+  createSpd(name: String!): Spd!
+}

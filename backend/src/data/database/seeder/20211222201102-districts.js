@@ -5,7 +5,8 @@ const dataset = require('../../../../dataset.json');
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkInsert('district', dataset.map(({ district }) => ({ name: district })), {});
+    const names = Array.from(new Set(dataset.map(({ district }) => district)));
+    await queryInterface.bulkInsert('district', names.map(name => ({ name })), {});
   },
 
   down: async (queryInterface, Sequelize) => {

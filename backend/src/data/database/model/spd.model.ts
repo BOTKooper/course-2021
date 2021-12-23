@@ -1,15 +1,19 @@
 import {
   Table, Model, Column, HasMany,
 } from 'sequelize-typescript';
-import { Store } from './store.model';
+import { StoreModel } from './store.model';
 
-type ISpd = {
+export type ISpd = {
   id: number;
   name: string;
+  stores: StoreModel[];
 };
 
-@Table
-export class Spd extends Model<ISpd, Omit<ISpd, 'id'>> implements ISpd {
+@Table({
+  tableName: 'spd',
+  timestamps: false,
+})
+export class SpdModel extends Model<ISpd, Omit<ISpd, 'id'>> implements ISpd {
   @Column({
     primaryKey: true,
     unique: true,
@@ -23,6 +27,6 @@ export class Spd extends Model<ISpd, Omit<ISpd, 'id'>> implements ISpd {
   })
   public name: string;
 
-  @HasMany(() => Store, 'spdId')
-  public stores: Store[];
+  @HasMany(() => StoreModel, 'spdId')
+  public stores: StoreModel[];
 }

@@ -1,15 +1,19 @@
 import {
   Table, Model, Column, HasMany,
 } from 'sequelize-typescript';
-import { Store } from './store.model';
+import { StoreModel } from './store.model';
 
-type IDistrict = {
+export type IDistrict = {
   id: number;
   name: string;
+  stores: StoreModel[];
 };
 
-@Table
-export class District extends Model<IDistrict, Omit<IDistrict, 'id'>> implements IDistrict {
+@Table({
+  tableName: 'district',
+  timestamps: false,
+})
+export class DistrictModel extends Model<IDistrict, Omit<IDistrict, 'id'>> implements IDistrict {
   @Column({
     primaryKey: true,
     unique: true,
@@ -24,6 +28,6 @@ export class District extends Model<IDistrict, Omit<IDistrict, 'id'>> implements
   })
   public name: string;
 
-  @HasMany(() => Store, 'districtId')
-  public stores: Store;
+  @HasMany(() => StoreModel, 'districtId')
+  public stores: StoreModel[];
 }

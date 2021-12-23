@@ -8,7 +8,6 @@ declare module "node-config-ts" {
   interface Postgres {
     dialect: string
     synchronize: boolean
-    logging: boolean
     database: string
     port: number
     host: string

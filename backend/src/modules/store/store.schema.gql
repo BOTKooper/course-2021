@@ -1,0 +1,26 @@
+type Store {
+  id: ID!
+  name: String!
+  street: String!
+  hours: String!
+  districtId: ID!
+  spdId: ID!
+}
+
+input CreateStoreInput {
+  name: String!
+  street: String
+  hours: String
+  districtId: Int!
+  spdId: Int!
+}
+
+type Query {
+  getAllStores: [Store!]!
+  getStoreById(id: ID!): Store
+}
+
+type Mutation {
+  deleteStore(id: ID!): Boolean!
+  createStore(input: CreateStoreInput!): Store!
+}

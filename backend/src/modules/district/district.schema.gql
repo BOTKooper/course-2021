@@ -1,0 +1,18 @@
+type District {
+  id: ID!
+  name: String!
+}
+
+type Store {
+  district: District!
+}
+
+type Query {
+  getAllDistricts: [District!]!
+  getDistrictById(id: ID!): District
+}
+
+type Mutation {
+  deleteDistrict(id: ID!): Boolean!
+  createDistrict(name: String!): District!
+}

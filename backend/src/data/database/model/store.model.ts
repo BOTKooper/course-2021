@@ -1,19 +1,23 @@
 import {
   Table, Model, Column, ForeignKey,
 } from 'sequelize-typescript';
-import { District } from './district.model';
-import { Spd } from './spd.model';
+import { DistrictModel } from './district.model';
+import { SpdModel } from './spd.model';
 
-type IStore = {
+export type IStore = {
   id: number;
   name: string;
   spdId: number;
   districtId: number;
-  address: string;
+  street: string;
+  hours: string;
 };
 
-@Table
-export class Store extends Model<IStore, Omit<IStore, 'id'>> implements IStore {
+@Table({
+  tableName: 'store',
+  timestamps: false,
+})
+export class StoreModel extends Model<IStore, Omit<IStore, 'id'>> implements IStore {
   @Column({
     primaryKey: true,
     unique: true,
@@ -24,26 +28,26 @@ export class Store extends Model<IStore, Omit<IStore, 'id'>> implements IStore {
 
   @Column({
     allowNull: false,
-    unique: true,
   })
   public name: string;
 
   @Column({
     allowNull: false,
   })
-  @ForeignKey(() => Spd)
+  @ForeignKey(() => SpdModel)
   public spdId: number;
 
   @Column({
     allowNull: false,
-    unique: true,
   })
-  @ForeignKey(() => District)
+  @ForeignKey(() => DistrictModel)
   public districtId: number;
 
   @Column({
     allowNull: false,
-    unique: true,
   })
-  public address: string;
+  public street: string;
+
+  @Column({})
+  public hours: string;
 }
