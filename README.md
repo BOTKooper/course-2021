@@ -1,1 +1,5 @@
-Made this in "fuck off" style just to finish 4th year of KhAI
+Course project for KhAI
+
+ База даних атестованих автостанцій
+ Спроєктувати базу даних, наповнити даними з датасету [https://data.gov.ua/dataset/ce09ab0c-1efa-4047-986f-01bc8e8ae936](https://data.gov.ua/dataset/ce09ab0c-1efa-4047-986f-01bc8e8ae936) Дана інформація має зберігатися для кожного приєднання.
+ У постачальника може бути багато приєднань.
